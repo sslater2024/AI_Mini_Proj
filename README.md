@@ -9,6 +9,9 @@ The main goals for this project are:
    - By Direct modding: controlmap.txt
    - Or by simply mapping controls to key and mouse inputs
 
+Helpful Links:
+- https://docs.ultralytics.com/quickstart/
+
 #Tasks
 
 - Use YOLOv8 (cuz it's free and good for real time) and have it utilize our webcam
@@ -18,3 +21,4 @@ The main goals for this project are:
 - Designate which Actions belong with which motions
 - Make Middleware
   - The connection between skyrim and YOLO
+
