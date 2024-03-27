@@ -11,6 +11,7 @@ The main goals for this project are:
 
 Helpful Links:
 - https://docs.ultralytics.com/quickstart/
+- https://docs.ultralytics.com/tasks/pose/
 
 #Tasks
 
