@@ -23,3 +23,19 @@ Helpful Links:
 - Make Middleware
   - The connection between skyrim and YOLO
 
+Contols and the respective poses:
+- Head
+   - Look left
+   - Look right
+   - Look up
+   - Look down
+- Movement
+   - Crouch
+   - Jump
+   - Move forward
+   - Move Backwards
+   - Move right
+   - Move left
+- Interaction:
+   - Activate
+   - Attack
