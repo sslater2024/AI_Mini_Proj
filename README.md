@@ -10,14 +10,15 @@ The main goals for this project are:
    - Or by simply mapping controls to key and mouse inputs
 
 Helpful Links:
-- https://docs.ultralytics.com/quickstart/
-- https://docs.ultralytics.com/tasks/pose/
+- https://www.youtube.com/watch?v=88TVX58GHIc :cvat skeleton tutorial: for annotaion
+- https://www.youtube.com/watch?v=gA5N54IO1ko : describes the whole pose estimation process (on image not video)
 
 #Tasks
 
 - Use YOLOv8 (cuz it's free and good for real time) and have it utilize our webcam
   - Get Good Accuracy withthis
 - Model Training
+   - Pose Estimation: Use keypoints to train model 
 - Have inputs from our Program have effects on gameplay in Skyrim
 - Designate which Actions belong with which motions
 - Make Middleware
@@ -27,8 +28,6 @@ Contols and the respective poses:
 - Head
    - Look left
    - Look right
-   - Look up
-   - Look down
 - Movement
    - Crouch
    - Jump
