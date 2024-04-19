@@ -11,7 +11,7 @@ The main goals for this project are:
 
 Helpful Links:
 - https://www.youtube.com/watch?v=88TVX58GHIc :cvat skeleton tutorial: for annotaion
-- https://www.youtube.com/watch?v=gA5N54IO1ko : describes the whole pose estimation process (on image not video)
+- https://www.youtube.com/watch?v=gA5N54IO1ko : describes the whole pose estimation process (on image not video)](https://www.youtube.com/watch?v=m9fH9OWn8YM&list=PLb49csYFtO2FXGMZxqmPrw_0GPJnPR0Up&index=2&t=5s
 
 #Tasks
 
