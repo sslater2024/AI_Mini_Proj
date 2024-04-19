@@ -1,0 +1,8 @@
+path: C:\Users\18046\Documents\VSCode\Python_Projects\AI_Python\AI_Project\Data #dataset root dir
+
+train: images/train
+val: images/val
+
+# Classes
+names: 
+  0: JUMP
