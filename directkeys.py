@@ -1,7 +1,9 @@
 # directkeys.py
 # from http://stackoverflow.com/questions/13564851/generate-keyboard-events
-
-# this is a faster option in comparison to others
+# pyautogui was an option, but it didn't allow for constant key presses, which this method does
+# key presses are neccesary when moving around in a video game
+# This file is out connection to any gaming application for utlilizing key controls, mosue controls, and mouse movement
+# This file has been modified to have Mouse functionality
 
 import ctypes
 from ctypes import wintypes
@@ -30,12 +32,12 @@ S = 0x53
 D = 0x44
 
 #Mouse controls:
-Left_Click = 0x45
+Left_Click =  0x45
 Right_Click = 0x52
 
 # C struct definitions
-
 wintypes.ULONG_PTR = wintypes.WPARAM
+
 
 class MOUSEINPUT(ctypes.Structure):
     _fields_ = (("dx",          wintypes.LONG),
@@ -52,27 +54,19 @@ class KEYBDINPUT(ctypes.Structure):
                 ("time",        wintypes.DWORD),
                 ("dwExtraInfo", wintypes.ULONG_PTR))
 
-    def __init__(self, *args, **kwds):
-        super(KEYBDINPUT, self).__init__(*args, **kwds)
-        # some programs use the scan code even if KEYEVENTF_SCANCODE
-        # isn't set in dwFflags, so attempt to map the correct code.
-        if not self.dwFlags & KEYEVENTF_UNICODE:
-            self.wScan = user32.MapVirtualKeyExW(self.wVk,
-                                                 MAPVK_VK_TO_VSC, 0)
-
 class HARDWAREINPUT(ctypes.Structure):
     _fields_ = (("uMsg",    wintypes.DWORD),
                 ("wParamL", wintypes.WORD),
                 ("wParamH", wintypes.WORD))
 
-class INPUT(ctypes.Structure):
-    class _INPUT(ctypes.Union):
-        _fields_ = (("ki", KEYBDINPUT),
-                    ("mi", MOUSEINPUT),
-                    ("hi", HARDWAREINPUT))
-    _anonymous_ = ("_input",)
-    _fields_ = (("type",   wintypes.DWORD),
-                ("_input", _INPUT))
+class Input_I(ctypes.Union):
+    _fields_ = [("ki", KeyBdInput),
+                 ("mi", MouseInput),
+                 ("hi", HardwareInput)]
+
+class Input(ctypes.Structure):
+    _fields_ = [("type", ctypes.c_ulong),
+                ("ii", Input_I)]
 
 LPINPUT = ctypes.POINTER(INPUT)
 
@@ -86,8 +80,7 @@ user32.SendInput.argtypes = (wintypes.UINT, # nInputs
                              LPINPUT,       # pInputs
                              ctypes.c_int)  # cbSize
 
-# Functions
-
+#Action Functions
 def PressKey(hexKeyCode):
     x = INPUT(type=INPUT_KEYBOARD,
               ki=KEYBDINPUT(wVk=hexKeyCode))
@@ -99,7 +92,7 @@ def ReleaseKey(hexKeyCode):
                             dwFlags=KEYEVENTF_KEYUP))
     user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
 
-# my modifications
+# Mouse Additions
 final_x = 0
 final_y = 0
 
