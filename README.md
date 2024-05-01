@@ -9,32 +9,8 @@ The main goals for this project are:
    - By Direct modding: controlmap.txt
    - Or by simply mapping controls to key and mouse inputs
 
-Helpful Links:
-- https://www.youtube.com/watch?v=88TVX58GHIc :cvat skeleton tutorial: for annotaion
-- https://www.youtube.com/watch?v=gA5N54IO1ko : describes the whole pose estimation process (on image not video)](https://www.youtube.com/watch?v=m9fH9OWn8YM&list=PLb49csYFtO2FXGMZxqmPrw_0GPJnPR0Up&index=2&t=5s
-
-#Tasks
-
-- Use YOLOv8 (cuz it's free and good for real time) and have it utilize our webcam
-  - Get Good Accuracy withthis
-- Model Training
-   - Pose Estimation: Use keypoints to train model 
-- Have inputs from our Program have effects on gameplay in Skyrim
-- Designate which Actions belong with which motions
-- Make Middleware
-  - The connection between skyrim and YOLO
-
-Contols and the respective poses:
-- Head
-   - Look left
-   - Look right
-- Movement
-   - Crouch
-   - Jump
-   - Move forward
-   - Move Backwards
-   - Move right
-   - Move left
-- Interaction:
-   - Activate
-   - Attack
+To utilize this program:
+- Install all needed dependcies
+- Run the runner.py file with the source as either a webcam, or a video
+- If running your own weights file, replace the model at the begining of the runner function with your own model
+- If adding in your own controls, add the corresponding keys to directkeys.py and add the controls to the Key_controls inside of runner to generate new key events
