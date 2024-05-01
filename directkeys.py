@@ -24,21 +24,14 @@ MAPVK_VK_TO_VSC = 0
 # msdn.microsoft.com/en-us/library/dd375731
 
 #keyboard controls
-CNTRL = 0x11
-SHIFT = 0x10
-SPACE = 0x20
-
 W = 0x57
 A = 0x41
 S = 0x53
 D = 0x44
 
-E = 0x45
-R = 0x52
-
 #Mouse controls:
-Left_Click = 0x01
-Right_Click = 0x02
+Left_Click = 0x45
+Right_Click = 0x52
 
 # C struct definitions
 
@@ -107,24 +100,18 @@ def ReleaseKey(hexKeyCode):
     user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
 
 # my modifications
-# final_x = 0
-# final_y = 0
+final_x = 0
+final_y = 0
 
-# def MouseInput(dest_x, dest_y = 0):
-#     global final_x, final_y
-#     final_x += dest_x
-#     final_y += dest_y
+def MouseInput(dest_x, dest_y = 0):
+    global final_x, final_y
+    final_x += dest_x
+    final_y += dest_y
 
-#     extra = ctypes.c_ulong(0)
-#     ii_ = Input_I()
-#     ii_.mi = MouseInput(final_x, final_y, 0, (0x0001 | 0x8000), 0, ctypes.pointer(extra))
-#     x = Input(ctypes.c_ulong(0), ii_)
-#     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
+    extra = ctypes.c_ulong(0)
+    ii_ = Input_I()
+    ii_.mi = MouseInput(final_x, final_y, 0, (0x0001 | 0x8000), 0, ctypes.pointer(extra))
+    x = Input(ctypes.c_ulong(0), ii_)
+    ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-#     time.sleep(0.001)
-
-if __name__ == "__main__":
-    PressKey(A)
-    time.sleep(0.5)
-    ReleaseKey(A)
-    print("Pressed")
+    time.sleep(0.001)
