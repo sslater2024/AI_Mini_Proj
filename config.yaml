@@ -1,10 +1,11 @@
-path: C:\Users\ishei\intro_to_ai\mini_proj\AI_Mini_Proj\Data
+#config.yaml: a file that is used to coordinate the training data
+# Path has been abbreivated for privacy concerns
+path: \AI_Mini_Proj\Data #dataset root dir
 
 train: images/train
 val: images/val
 
 # Classes
 names: 
-  0: human arm
-  1: left arm
-  2: human arm
+  0: ARM_RIGHT
+  1: ARM_LEFT
